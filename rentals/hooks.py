@@ -117,9 +117,10 @@ app_license = "mit"
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
+permission_query_conditions = {
+	# "Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+    "Vehicle": "rentals.api.get_query_conditions_for_vehicle"
+}
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
@@ -138,32 +139,42 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# }
+
+    # "ToDo": {
+    #     "before_insert": "rentals.api.throw_emoji"
+	# }
 # }
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"rentals.tasks.all"
-# 	],
-# 	"daily": [
-# 		"rentals.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"rentals.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"rentals.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"rentals.tasks.monthly"
-# 	],
+	# "all": [
+	# 	"rentals.tasks.all"
+	# ],
+	# "daily": [
+	# 	"rentals.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"rentals.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"rentals.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"rentals.tasks.monthly"
+	# ],
+
+    # "cron": {
+    #     "30 15 * * 3": [
+    #         "rentals.api.send_payment_reminders"
+    #     ]
+    # }
 # }
 
 # Testing
@@ -242,3 +253,5 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+website_route_rules = [{'from_route': '/portal/<path:app_path>', 'to_route': 'portal'},]
