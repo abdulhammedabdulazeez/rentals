@@ -119,7 +119,7 @@ app_license = "mit"
 
 permission_query_conditions = {
 	# "Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-    "Vehicle": "rentals.api.get_query_conditions_for_vehicle"
+    # "Vehicle": "rentals.api.get_query_conditions_for_vehicle"
 }
 #
 # has_permission = {
